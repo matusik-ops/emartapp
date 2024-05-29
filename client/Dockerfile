@@ -1,6 +1,7 @@
 FROM node:14 AS web-build
 WORKDIR /usr/src/app
-COPY ./ ./client
+# copy every source code to ./client            ...our source code will be in /usr/src/app/client
+COPY ./ ./client     
 RUN cd client && npm install && npm run build --prod
 
 # Use official nginx image as the base image
